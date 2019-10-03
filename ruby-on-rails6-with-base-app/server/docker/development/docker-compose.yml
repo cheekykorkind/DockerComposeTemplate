@@ -1,24 +1,3 @@
-# version: '3'
-# services:
-#   db:
-#     container_name: 'db'
-#     image: postgres
-#     user: 1000:1000
-#     volumes:
-#       - ../../../tmp/db:/var/lib/postgresql/data
-#   web:
-#     container_name: 'web'
-#     build:
-#       context: ../../../
-#       dockerfile: ./server/docker/development/Dockerfile
-#     working_dir: '/myapp'
-#     volumes:
-#       - ../../../:/myapp
-#     ports:
-#       - "3000:3000"
-#     depends_on:
-#       - db
-
 version: '3'
 services:
   db:
