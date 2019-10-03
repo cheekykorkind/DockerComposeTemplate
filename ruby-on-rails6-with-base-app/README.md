@@ -1,24 +1,14 @@
-# README
+[한국어](README.kr.md)
+[日本語](README.jp.md)
+# ruby-on-rails6
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# command sequence
+- `cd server/docker/development/`
 
-Things you may want to cover:
+- If you do not set .env file, execute.
+  - `sh setDotEnv.sh`
 
-* Ruby version
+- `docker-compose build && docker-compose up -d`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- If you do not have db, execute.
+  - `docker-compose run web rake db:create`
