@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
 
-# Remove a potentially pre-existing server.pid for Rails.
-rm -f /myapp/tmp/pids/server.pid
-
+# set permission for host volumes space
 chown -R ${UID}:${GID} .
+
+# set permission for web container work on db container
+chmod 777 -R /myapp/tmp/db/
 
 # For 'Your Yarn packages are out of date! Please run "yarn install --check-files" to update'
 yarn install --check-files

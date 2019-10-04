@@ -2,8 +2,7 @@ version: '3'
 services:
   db:
     container_name: 'db'
-    image: postgres
-    user: $UID:$GID
+    image: postgres:9.6
     volumes:
       - ../../../tmp/db:/var/lib/postgresql/data
   web:

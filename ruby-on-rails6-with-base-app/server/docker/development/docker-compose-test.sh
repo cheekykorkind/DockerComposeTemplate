@@ -11,5 +11,4 @@ sudo rm -rf /home/vagrant/DockerComposeTemplate/ruby-on-rails6-with-base-app/sto
 sudo rm -rf /home/vagrant/DockerComposeTemplate/ruby-on-rails6-with-base-app/public/assets
 sudo rm -rf /home/vagrant/DockerComposeTemplate/ruby-on-rails6-with-base-app/node_modules/
 
-
-docker-compose build && docker-compose up -d
+docker-compose up -d --build
