@@ -8,7 +8,7 @@
 - If you do not set .env file, execute.
   - `sh setDotEnv.sh`
 
-- `docker-compose build && docker-compose up -d`
-
 - If you do not have db, execute.
   - `docker-compose run web rake db:create`
+
+- `docker-compose up -d --build`
