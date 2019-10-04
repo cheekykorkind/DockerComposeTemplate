@@ -12,3 +12,4 @@ sudo rm -rf /home/vagrant/DockerComposeTemplate/ruby-on-rails6-with-base-app/pub
 sudo rm -rf /home/vagrant/DockerComposeTemplate/ruby-on-rails6-with-base-app/node_modules/
 
 docker-compose up -d --build
+# http://localhost:3000/
