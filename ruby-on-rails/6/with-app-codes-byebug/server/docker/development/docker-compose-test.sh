@@ -13,3 +13,4 @@ sudo rm -rf ../../../node_modules/
 
 docker-compose up -d --build
 # http://localhost:3000/
+# http://localhost:3000/welcome/index
