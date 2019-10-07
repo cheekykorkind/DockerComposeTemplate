@@ -6,10 +6,10 @@ yes | docker system prune --volumes
 
 docker rmi $(docker images -q) --force
 
-sudo rm -rf ./tmp/
-sudo rm -rf ./storage/
-sudo rm -rf ./public/assets
-sudo rm -rf ./node_modules/
+sudo rm -rf ../../../tmp/
+sudo rm -rf ../../../storage/
+sudo rm -rf ../../../public/assets
+sudo rm -rf ../../../node_modules/
 
 docker-compose up -d --build
 # http://localhost:3000/
