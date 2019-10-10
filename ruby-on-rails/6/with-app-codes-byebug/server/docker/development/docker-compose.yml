@@ -8,17 +8,19 @@ services:
       - ../../../tmp/db:/var/lib/postgresql/data
   web:
     container_name: 'web'
+    user: $UID:$GID
     build:
       context: ../../../
       dockerfile: ./server/docker/development/Dockerfile
       args:
         UID: $UID
         GID: $GID
+        UNAME: $UNAME
     stdin_open: true
     tty: true
-    working_dir: '/myapp'
+    working_dir: '/home/$UNAME/myapp'
     volumes:
-      - ../../../:/myapp
+      - ../../../:/home/$UNAME/myapp
     ports:
       - "3000:3000"
     depends_on:

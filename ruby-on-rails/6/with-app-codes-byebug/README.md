@@ -13,8 +13,7 @@
 
 - `docker-compose up -d --build`
 
-- `docker exec web rails generate controller Welcome index`
-- `sudo chown -R $(id -u $USER):$(id -g $USER) ../../../`
+- `docker-compose run web rails generate controller Welcome index`
 - `docker attach web`
 - If you finish debug, execute.
   - remove `byebug` in your code

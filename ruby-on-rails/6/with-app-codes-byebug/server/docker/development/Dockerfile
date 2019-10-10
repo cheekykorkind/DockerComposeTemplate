@@ -7,12 +7,19 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 
 ARG UID
 ARG GID
+ARG UNAME
 
 ENV UID ${UID}
 ENV GID ${GID}
+ENV UNAME ${UNAME}
 
-COPY . /myapp
-WORKDIR /myapp
+RUN useradd --create-home --shell /bin/bash -G sudo,root ${UNAME}
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+ENV app /home/${UNAME}/myapp
+RUN mkdir -p $app
+WORKDIR $app
+COPY . $app
 
 RUN bundle install
 
