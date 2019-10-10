@@ -1,11 +1,8 @@
 #!/bin/bash
 set -e
 
-# set permission for host volumes space
-chown -R ${UID}:${GID} .
-
 # set permission for web container work on db container
-chmod 777 -R /myapp/tmp/db/
+sudo chmod 777 -R /home/${UNAME}/myapp/tmp/
 
 # For 'Your Yarn packages are out of date! Please run "yarn install --check-files" to update'
 yarn install --check-files
