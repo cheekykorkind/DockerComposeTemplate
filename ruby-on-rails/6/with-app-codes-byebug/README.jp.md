@@ -25,13 +25,9 @@
 
 ### byebug使用例に直接関わる部分
 #### byebug使用例のためにcontrollerを作成
-- `docker exec web rails generate controller Welcome index`
-
-#### 作成されたcontrollerの所有者がrootになるため、権限調整(自動化は今後する)
-- `sudo chown -R $(id -u $USER):$(id -g $USER) ../../../`
+- `docker-compose run web rails generate controller Welcome index`
 
 #### WelcomeControllerのコードにbyebugを試しに書く
-- `docker exec web rails generate controller Welcome index`
 ![byebugWorkingController.PNG](./README_img/byebugWorkingController.PNG "byebugWorkingController.PNG")
 
 #### WelcomeControllerにbyebugがかかったことを確認
