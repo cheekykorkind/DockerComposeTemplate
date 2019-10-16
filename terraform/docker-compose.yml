@@ -1,0 +1,15 @@
+version: '3'
+services:
+  terraform:
+    container_name: 'terraform'
+    user: $UID:$GID
+    build:
+      context: .
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+    tty: true
+    working_dir: '/home/$UNAME/workspace'
+    volumes:
+      - ./workspace:/home/$UNAME/workspace
