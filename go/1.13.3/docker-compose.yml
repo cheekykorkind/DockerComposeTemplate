@@ -1,0 +1,15 @@
+version: '3'
+services:
+  go-1-13-3:
+    container_name: 'go-1-13-3'
+    user: $UID:$GID
+    build:
+      context: .
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+    tty: true
+    working_dir: '/home/$UNAME/workspace'
+    volumes:
+      - ./workspace:/home/$UNAME/workspace
