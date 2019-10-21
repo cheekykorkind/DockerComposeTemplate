@@ -13,6 +13,6 @@
 - write terraform template at host machine `./workspace`
 - execute terraform template 
   - in docker container
-    - `docker exec -it go-1-13-3 /bin/bash`
+    - `docker exec -it go-1-13-3 /bin/sh`
   - outside of docker container
     - `docker exec go-1-13-3 go run main.go`
