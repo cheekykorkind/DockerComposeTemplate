@@ -1,0 +1,18 @@
+version: '3'
+services:
+  dynamodb-admin:
+    container_name: 'dynamodb-admin'
+    user: $UID:$GID
+    build:
+      context: .
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+        DYNAMO_ENDPOINT: 'http://192.168.33.22:8000' # consider where docker and dynamoDB running.
+    tty: true
+    working_dir: '/home/$UNAME/workspace'
+    volumes:
+      - ./workspace:/home/$UNAME/workspace
+    ports:
+      - '8001:8001'
