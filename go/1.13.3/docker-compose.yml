@@ -13,4 +13,3 @@ services:
     working_dir: '/home/$UNAME/workspace'
     volumes:
       - ./workspace:/home/$UNAME/workspace
-      - ~/.ssh:/home/$UNAME/.ssh
