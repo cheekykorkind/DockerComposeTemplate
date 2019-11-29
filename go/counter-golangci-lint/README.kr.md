@@ -1,0 +1,1 @@
+# counter-golangci-lint
