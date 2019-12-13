@@ -1,0 +1,45 @@
+version: '3'
+services:
+  db:
+    container_name: 'db'
+    image: postgres:9.6
+    restart: on-failure
+    volumes:
+      - ../../../tmp/db:/var/lib/postgresql/data
+  web:
+    container_name: 'web'
+    user: $UID:$GID
+    build:
+      context: ../../../
+      dockerfile: ./server/docker/development/Dockerfile
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+    stdin_open: true
+    tty: true
+    working_dir: '/home/$UNAME/myapp'
+    volumes:
+      - ../../../:/home/$UNAME/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4567-4597:4567-4597"
+      - "8080:8080"
+    environment:
+      # - SERVICES=${SERVICES- }
+      # - DEBUG=${DEBUG- }
+      # - DATA_DIR=${DATA_DIR- }
+      # - PORT_WEB_UI=8080
+      # - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+      # - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - ../../../tmp/localstack:/tmp/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+    stdin_open: true
+    tty: true
