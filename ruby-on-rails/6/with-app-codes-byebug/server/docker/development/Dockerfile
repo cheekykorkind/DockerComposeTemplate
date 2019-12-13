@@ -3,7 +3,7 @@ FROM ruby:2.6
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn sudo
 
 ARG UID
 ARG GID
@@ -13,7 +13,7 @@ ENV UID ${UID}
 ENV GID ${GID}
 ENV UNAME ${UNAME}
 
-RUN useradd --create-home --shell /bin/bash -G sudo,root ${UNAME}
+RUN useradd --uid ${UID} --create-home --shell /bin/bash -G sudo,root ${UNAME}
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 ENV app /home/${UNAME}/myapp
