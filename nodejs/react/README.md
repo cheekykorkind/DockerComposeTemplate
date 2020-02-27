@@ -1,13 +1,10 @@
 [한국어](README.kr.md)
 [日本語](README.jp.md)
-# dynamodb-admin
+# react
 
 ## command sequence
 ### set .env file for host machine volumes permission
 - `sh setDotEnv.sh`
-
-### set docker-ccompose file DYNAMO_ENDPOINT for dynamodb-admin
-- consider where docker and dynamoDB running.
 
 ### start docker compose
 - `docker-compose up -d --build`
@@ -16,4 +13,5 @@
 - work at host machine `./workspace`
 
 ### get in docker container
-- `docker exec -it dynamodb-admin /bin/sh`
+- `docker exec -it react /bin/sh`
+
