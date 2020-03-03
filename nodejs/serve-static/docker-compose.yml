@@ -1,0 +1,17 @@
+version: '3'
+services:
+  serve-static:
+    container_name: 'serve-static'
+    user: $UID:$GID
+    build:
+      context: .
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+    tty: true
+    working_dir: '/home/$UNAME/workspace'
+    volumes:
+      - ./workspace:/home/$UNAME/workspace
+    ports:
+      - '3000:3000'
