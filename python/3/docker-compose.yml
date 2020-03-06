@@ -1,0 +1,17 @@
+version: '3'
+services:
+  python3:
+    container_name: 'python3'
+    user: $UID:$GID
+    build:
+      context: .
+      args:
+        UID: $UID
+        GID: $GID
+        UNAME: $UNAME
+    tty: true
+    working_dir: '/home/$UNAME/workspace'
+    volumes:
+      - ./workspace:/home/$UNAME/workspace
+    ports:
+      - '3000:3000'
