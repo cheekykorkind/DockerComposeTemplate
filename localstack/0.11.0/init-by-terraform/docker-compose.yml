@@ -5,9 +5,12 @@ services:
     container_name: 'pip_installer'
     image: python:3.7-alpine3.10
     tty: true
+    environment:
+      LAMBDA_ZIP_PATH: /workspace/sam-lambda/hello_world/lambda.zip
     working_dir: /workspace/sam-lambda
     volumes:
       - ./sam-lambda:/workspace/sam-lambda
+      
 
   localstack:
     container_name: 'localstack-dev'
@@ -24,7 +27,6 @@ services:
       DEBUG: 1
       DOCKER_HOST: unix:///var/run/docker.sock
       HOSTNAME_EXTERNAL: localstack
-      LAMBDA_ZIP_DST: /workspace/lambda.zip
     volumes:
       - ./tmp/localstack:/tmp/localstack
       - ./sam-lambda:/workspace/sam-lambda

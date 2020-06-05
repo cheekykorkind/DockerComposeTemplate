@@ -3,7 +3,7 @@
 # localstack init by shell script
 
 ## create sam project
-cd DockerComposeTemplate/localstack/0.11.0/
+cd DockerComposeTemplate/localstack/0.11.0/init-by-shell
 sam init
 
 
@@ -22,5 +22,3 @@ aws lambda invoke \
     --payload '{ "name": "Bob" }' \
     response.json
 ```
-
-
