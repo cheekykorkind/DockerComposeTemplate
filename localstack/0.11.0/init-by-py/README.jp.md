@@ -1,1 +1,1 @@
-# localstack init by shell py
+# localstack init by py

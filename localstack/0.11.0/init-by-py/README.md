@@ -1,6 +1,6 @@
 [한국어](README.kr.md)
 [日本語](README.jp.md)
-# localstack init by shell py
+# localstack init by py
 
 ## create sam project
 cd DockerComposeTemplate/localstack/0.11.0/init-by-py
