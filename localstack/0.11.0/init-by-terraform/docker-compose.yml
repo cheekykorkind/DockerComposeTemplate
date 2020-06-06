@@ -7,10 +7,11 @@ services:
     tty: true
     environment:
       LAMBDA_ZIP_PATH: /workspace/sam-lambda/hello_world/lambda.zip
+      TERRAFORM_PATH: /workspace/terraform
     working_dir: /workspace/sam-lambda
     volumes:
       - ./sam-lambda:/workspace/sam-lambda
-      
+      - ./terraform:/workspace/terraform
 
   localstack:
     container_name: 'localstack-dev'
@@ -34,4 +35,3 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - pip_installer
-

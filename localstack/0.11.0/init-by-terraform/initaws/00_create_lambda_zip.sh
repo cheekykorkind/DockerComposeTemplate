@@ -1,7 +1,7 @@
 #!/bin/sh
 
 docker exec pip_installer /bin/sh -e -c "
-apk add zip terraform
+apk add zip terraform==0.12.6-r0
 
 echo 'install pip package'
 cd ./hello_world
@@ -9,7 +9,7 @@ pip install -t ./packages -r requirements.txt
 zip -r9 lambda.zip .
 
 echo 'Go to main.tf directory'
-cd ../
+cd \$TERRAFORM_PATH
 
 terraform init
 
