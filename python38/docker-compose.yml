@@ -1,0 +1,10 @@
+version: '3'
+services:
+  python3-8:
+    container_name: 'python3-8'
+    build:
+      context: .
+    tty: true
+    working_dir: '/workspace'
+    volumes:
+      - ./:/workspace
