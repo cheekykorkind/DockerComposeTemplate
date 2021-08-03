@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  az_cli_func_dotnet3:
+    container_name: 'az_cli_func_dotnet3'
+    user: $DOCKER_UID:$DOCKER_GID
+    build:
+      context: .
+      # dockerfile: ./docker/development/Dockerfile
+      args:
+        UID: $DOCKER_UID
+        GID: $DOCKER_GID
+        UNAME: $USER
+    tty: true
+    working_dir: '/home/$USER/workspace'
+    volumes:
+      - .:/home/$USER/workspace:cached
+      - ~/.azure:/home/$USER/.azure
+    # entrypoint: /bin/bash
+    entrypoint: |
+      bash -e -c "
+      sudo chown -R $USER /home/$USER/workspace
+      /bin/bash
+      "
